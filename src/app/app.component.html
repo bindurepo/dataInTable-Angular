@@ -1,0 +1,49 @@
+
+<h1 [ngStyle]="{'background-color':''}"> {{ name }}</h1>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid;
+    text-align: left;
+    padding: 7px;
+}
+
+tr:nth-child(even) {
+    background-color:grey;
+}
+</style>
+</head>
+The UserId:<input type="text" [(ngModel)]="sampleObj.userId"><br><br>
+The id:<input type="text" [(ngModel)]="sampleObj.id"><br><br>
+The title:<input type="text" [(ngModel)]="sampleObj.title"><br><br>
+The body:<input type="text" [(ngModel)]="sampleObj.body"><br><br>
+<table>
+  <tr>
+    <th>UserId</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+  <tr *ngFor="let key of sampleArray; let i =index">
+    <td>{{key.userId}} </td>
+    <td>{{key.id}} </td>
+    <td>{{key.title}} </td>
+    <td> {{key.body}}</td> 
+    <td><i class="fa fa-pencil" aria-hidden="true"(click)="editRow(key)"></i></td>
+    <td> <i class="fa fa-trash" aria-hidden="true" (click)="deleteRow(i)"></i></td>
+  </tr>
+</table>
+
+
+       
+  
